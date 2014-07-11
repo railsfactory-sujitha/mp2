@@ -1,54 +1,60 @@
 class Todolist
-attr_accessor :complete, :pending ,:filename
+attr_accessor :filename,:todo,:pending,:completed
+@todo = []
+@pending = []
+@completed = []
 
-def initialize
+def self.initialize(filename)
 @filename = filename
 end
 
-def pending
-pending = []
-return pending
+def self.pending
+return @pending.size
 end
 
-def list
-list = []
-return list
-end
- 
-def completed
-complete = []
-return complete
-end
- 
-def add(item)
+def self.list
+@todo = @pending + @completed
+return @todo.size
 end
 
-def complete(item)
+def self.completed
+return @completed.size
 end
 
-def incomplete(item)
+def self.add(items)
+@pending << items
+return @pending.count
 end
 
-def delete(num)
+def self.complete(num)
+@completed << @pending[num - 1]
+@pending.delete_at(num - 1)
+return @completed.size
 end
 
-def modify(num,item)
+def self.delete(num)
+@completed.delete_at(num-1)
+return @completed.size
 end
 
-def show_pending
+def self.modify(num , item)
+@pending[num-1] = item
+return @pending[num-1]
 end
 
-def show_completed
+def self.empty
+@pending.clear
+@completed.clear
+@todo.clear
+return true
 end
 
-def empty
+def self.show_pending(num)
+return @pending[num-1]
 end
 
-private def load
+def self.show_completed(num)
+return @completed[num-1]
 end
 
-private def save
 end
-
-end
-Todolist.new.list
