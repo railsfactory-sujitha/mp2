@@ -1,0 +1,22 @@
+class Todo_list
+def initialize(item,status)
+@item = item
+@status = status
+end
+def add
+#to add an item
+
+end
+
+def status
+#to check whether it is pending or not
+end
+
+def delete
+#to delete an item from the todo_list
+end
+
+def list
+#to list the item from storage
+end
+end

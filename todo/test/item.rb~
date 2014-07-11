@@ -1,0 +1,22 @@
+class Item
+attr_accessor :item :status
+def add(item,status)
+@item = @item.to_a.push item
+@status = @status.to_a.push status
+end
+def list(item)
+puts item,status
+end
+def status
+if status == pending
+    puts "pending status"
+else
+    puts "Completed"
+end
+end
+def delete
+
+end
+
+end
+
